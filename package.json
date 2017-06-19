@@ -1,0 +1,17 @@
+{
+  "name": "slug-next",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next"
+  },
+  "author": "metasean",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "next": "^2.4.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  }
+}
