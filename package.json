@@ -1,15 +1,18 @@
 {
-  "name": "slug-next",
+  "name": "next tut",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next"
+    "devClient": "next",
+    "dev": "node server.js"
   },
   "author": "metasean",
   "license": "UNLICENSED",
   "dependencies": {
+    "express": "^4.15.3",
+    "isomorphic-unfetch": "^1.0.0",
     "next": "^2.4.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
