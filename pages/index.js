@@ -1,43 +1,71 @@
 // external libraries
 import Link from 'next/link'
-import fetch from 'isomorphic-unfetch'
 
 // internal components
 import Layout from '../components/appLayout.js'
 
-const PostLink = (props) => (
+function getPosts () {
+  return [
+    { id: 'hello-nextjs', title: 'Hello Next.js'},
+    { id: 'learn-nextjs', title: 'Learn Next.js is awesome'},
+    { id: 'deploy-nextjs', title: 'Deploy apps with ZEIT'},
+  ]
+}
+
+const PostLink = ({ post }) => (
   <li>
-    <Link as={`/post/${props.id}`} href={`/posts?title=${props.title}`}>
-      <a>{props.title}</a>
+    <Link as={`/post/${post.id}`} href={`/posts?title=${post.title}`}>
+      <a>{post.title}</a>
     </Link>
+    <style jsx>{`
+      li {
+        list-style: none;
+        margin: 5px 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: blue;
+        font-family: "Arial";
+      }
+
+      a:hover {
+        opacity: 0.6;
+      }
+    `}</style>
   </li>
 )
 
-const Index = (props) => (
+export default () => (
   <Layout>
-    <h1>Batman TV Shows</h1>
+    <h1>My Rockin' Blog</h1>
     <ul>
-      {props.shows.map(({show}) => (
-        <li key={show.id}>
-          <Link as={`/post/${show.id}`} href={`/post?id=${show.id}`}>
-            <a>{show.name}</a>
-          </Link>
-        </li>
+      {getPosts().map((post) => (
+        <PostLink key={post.id} post={post} />
       ))}
     </ul>
+    <style jsx>{`
+      h1, a {
+        font-family: "Arial";
+      }
+
+      ul {
+        padding: 0;
+      }
+
+      li {
+        list-style: none;
+        margin: 5px 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: blue;
+      }
+
+      a:hover {
+        opacity: 0.6;
+      }
+    `}</style>
   </Layout>
 )
-
-Index.getInitialProps = async function() {
-  const urlPath = 'https://api.tvmaze.com/search/shows?q=batman'
-  const res = await fetch(urlPath)
-  const data = await res.json()
-
-  console.log(`Show data fetched. Count: ${data.length}`)
-
-  return {
-    shows: data
-  }
-}
-
-export default Index
