@@ -1,4 +1,5 @@
 // external libraries
+import React from 'react'
 import fetch from 'isomorphic-unfetch'
 
 // internal components
