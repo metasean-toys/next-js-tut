@@ -6,15 +6,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "devClient": "next",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "build-storybook": "build-storybook"
   },
   "author": "metasean",
   "license": "UNLICENSED",
   "dependencies": {
+    "@storybook/cli": "^3.2.0-alpha.0",
     "express": "^4.15.3",
     "isomorphic-unfetch": "^1.0.0",
-    "next": "^3.0.0",
+    "next": "^3.0.0-beta9",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "@storybook/react": "^3.1.3"
   }
 }
